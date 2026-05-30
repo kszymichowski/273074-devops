@@ -7,6 +7,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app/ ./app/
 
+RUN adduser appuser \
+    && chown -R appuser /app
+USER appuser
+
 ENV DB_PATH=/data/app.db
 
 EXPOSE 8000
