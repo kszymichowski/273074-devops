@@ -20,6 +20,7 @@ def get_tasks():
 @app.post("/tasks")
 def create_task():
     data = request.get_json(silent=True)
+    # usuniety print pod lint check
     cleaned, err = v.validate_task(data)
     if err:
         return jsonify({"error": err}), 400
